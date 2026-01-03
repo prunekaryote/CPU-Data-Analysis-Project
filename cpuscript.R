@@ -5,7 +5,7 @@ library(conflicted)
 
 options(ggrepel.max.overlaps = Inf)
 
-cpu_data <- read.csv("C:/RCPU/cpudata.csv")
+cpu_data <- read.csv("https://raw.githubusercontent.com/prunekaryote/CPU-Data-Analysis-Project/refs/heads/main/cpudata.csv")
 
 year_avgGHz <- aggregate(GHz ~ Year, data = cpu_data, FUN = mean)
 year_avgGHz$increase_GHz <- c(NA, diff(year_avgGHz$GHz))
