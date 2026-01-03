@@ -1,0 +1,25 @@
+Name,Year,GHz,Cores
+Intel 4004,1971,0.00074,1
+Intel 4040,1974,0.00074,1
+Intel 8080,1974,0.002,1
+MOS 6502,1975,0.001,1
+Zilog Z80,1976,0.0025,1
+Intel 8086,1978,0.01,1
+Intel 80286,1982,0.0125,1
+Intel 80386,1985,0.033,1
+Intel 80486,1989,0.05,1
+AMD Am386,1991,0.04,1
+Intel Pentium,1993,0.2,1
+Intel Pentium II,1997,0.45,1
+Intel Pentium III,1999,1.4,1
+Intel Pentium 4,2000,2,1
+Athlon 64,2003,2,1
+Intel Pentium D,2005,2.8,2
+Core 2 Duo,2006,2.66,2
+Phenom II X4,2008,3,4
+Core i7-980x,2009,3.33,6
+FX-8350,2012,4,8
+Ryzen 7 1800X,2017,3.6,8
+i9-9900k,2018,3.6,8
+Ryzen 9,2022,4.5,16
+Intel Arrow Lake,2024,5.7,24
