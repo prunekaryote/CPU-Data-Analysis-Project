@@ -61,7 +61,7 @@ p1 <- ggplot(data, aes(Year, GHz)) +
   labs(x = "Year", y = "CPU Speed (GHz)") +
   theme_grey()
 
-# This graph shows each CPU and it's speed by year.
+# This graph shows each CPU and its speed by year.
 
 p2 <- ggplot(year_avgGHz, aes(Year, increase_GHz)) +
   geom_col() +
@@ -69,7 +69,7 @@ p2 <- ggplot(year_avgGHz, aes(Year, increase_GHz)) +
     labs(x = "Year", y = "GHz Increase", 
     title = "Average CPU Speed Increase per Year")
 
-# This graph shows each CPU and it's increase in speed by year.
+# This graph shows each CPU and its increase in speed by year.
 
 p3 <- ggplot(year_avgCore, aes(Year, increase_Cores)) +
                geom_col() +
@@ -77,7 +77,7 @@ p3 <- ggplot(year_avgCore, aes(Year, increase_Cores)) +
                labs(x = "Year", y = "Core(s) Increase",
                     title = "Average Core Count Increase per Year")
 
-# This graph shows each CPU and it's increase in cores by year.
+# This graph shows each CPU and its increase in cores by year.
 
 ```
 ```{r, echo=FALSE}
@@ -89,5 +89,6 @@ p3
 
 
 ## Conclusion
+
 
 From the data we can prove a clear trend between the year of CPU release with core and speed increase. This trend shows a standardization of multi-core CPUs after the early 2000s and improvements in processor speed over time.
