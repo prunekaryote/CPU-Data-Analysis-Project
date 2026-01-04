@@ -1,0 +1,93 @@
+---
+title: "CPU Visualization"
+author: "Robert P."
+date: "2026-01-03"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## Introduction
+
+Comments on code segments will be given *AFTER* the code segment to keep it readable and understandable.
+
+Ex:
+
+```{r}
+print("Hello World!")
+# This code prints "Hello World!"
+```
+
+This document examines the speeds and core count of various CPUs from multiple years to identify any trends between the age of a CPU and its speed and core count.
+
+## Data Import
+
+This section imports our data from the GitHub repository using the raw URL:
+
+```{r}
+# Import CSV from GitHub
+url <- "https://raw.githubusercontent.com/prunekaryote/CPU-Data-Analysis-Project/refs/heads/main/cpudata.csv"
+data <- read.csv(url)
+```
+
+## Data Analysis
+```{r}
+year_avgGHz <- aggregate(GHz ~ Year, data = data, FUN = mean)
+year_avgGHz$increase_GHz <- c(NA, diff(year_avgGHz$GHz))
+
+```
+
+Here we calculate the year by year increase in CPU speeds.
+```{r}
+year_avgCore <- aggregate(Cores ~ Year, data = data, FUN = mean)
+year_avgCore$increase_Cores <- c(NA, diff(year_avgCore$Cores))
+```
+Here the average amount of cores by year is calculated.
+<br><br>
+We can generate the tables for our data and set them as p1, p2, and p3 using this code:
+
+```{r}
+library(tidyverse)
+library(patchwork)
+library(ggrepel)
+
+p1 <- ggplot(data, aes(Year, GHz)) +
+  geom_jitter() +
+  geom_text_repel(aes(label = Name)) +
+  labs(x = "Year", y = "CPU Speed (GHz)") +
+  theme_grey()
+
+# This graph shows each CPU and it's speed by year.
+
+p2 <- ggplot(year_avgGHz, aes(Year, increase_GHz)) +
+  geom_col() +
+   theme_grey() +
+    labs(x = "Year", y = "GHz Increase", 
+    title = "Average CPU Speed Increase per Year")
+
+# This graph shows each CPU and it's increase in speed by year.
+
+p3 <- ggplot(year_avgCore, aes(Year, increase_Cores)) +
+               geom_col() +
+                theme_grey() +
+               labs(x = "Year", y = "Core(s) Increase",
+                    title = "Average Core Count Increase per Year")
+
+# This graph shows each CPU and it's increase in cores by year.
+
+```
+```{r, echo=FALSE}
+p1
+p2
+p3
+```
+
+
+
+## Conclusion
+
+From the data we can prove a clear trend between the year of CPU release with core and speed increase. This trend shows a standardization of multi-core CPUs after the early 2000s and improvements in processor speed over time.
