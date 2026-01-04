@@ -1,2 +1,2 @@
 # Removing .html due to Rmd knitting being present
-.html
+*.html
